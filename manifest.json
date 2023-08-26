@@ -1,28 +1,20 @@
 {
-  "manifest_version": 2,
-  "name": "custom whisper",
-  "description": "lets you customise the whisper command for the warframe trading website",
-  "version": "0.1",
-  "icons": {
-    "512": "icon.png"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "*://*.warframe.market/*"
-      ],
-      "js": [
-        "override.js"
-      ]
+    "manifest_version": 2,
+    "name": "custom whisper",
+    "description": "lets you customise the whisper command for the warframe trading website",
+    "version": "0.1",
+    "icons": {
+        "512": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["*://*.warframe.market/*"],
+            "js": ["override.js"]
+        }
+    ],
+    "permissions": ["clipboardRead", "clipboardWrite", "storage"],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "popup.html"
     }
-  ],
-  "permissions": [
-    "clipboardRead",
-    "clipboardWrite",
-    "storage"
-  ],
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  }
 }
