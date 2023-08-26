@@ -14,4 +14,5 @@ replacing anything inside curly brackets with the actual name/item/cost
 
 anyway yea ik the GUI is ugly but it doesnt need to be pretty
 
-i have zero experience with making browser extensions so sorry if anything is wrong...
+i have zero experience with making browser extensions so sorry if anything is
+wrong...

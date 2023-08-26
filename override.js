@@ -1,25 +1,34 @@
-const pattern = /\/w (?<name>.+) Hi! I want to (?<action>buy|sell): (?<item>.+) for (?<cost>[0-9]+) platinum\. \(warframe\.market\)/
+const pattern =
+    /\/w (?<name>.+) Hi! I want to (?<action>buy|sell): (?<item>.+) for (?<cost>[0-9]+) platinum\. \(warframe\.market\)/;
 
-document.addEventListener("copy", async event => {
-  const saved = await browser.storage.local.get("templates")
-  const templates = saved.templates
+document.addEventListener("copy", async (event) => {
+    const saved = await browser.storage.local.get("templates");
+    const templates = saved.templates;
 
-  const contents = document.activeElement?.value
-  if (!contents) {
-    return
-  }
+    const contents = document.activeElement?.value;
 
-  match = contents.match(pattern)
-  if (match) {
-    event.preventDefault()
-    let template = match.groups.action == "buy" ? templates.buy : templates.sell
-    if (!template) {
-      return
+    if (!contents) {
+        return;
     }
-    whisper = `/w {name} ${template}`
-    for (const name in match.groups) {
-      whisper = whisper.replaceAll(`{${name}}`, match.groups[name])
+
+    match = contents.match(pattern);
+
+    if (match) {
+        event.preventDefault();
+
+        let template =
+            match.groups.action == "buy" ? templates.buy : templates.sell;
+
+        if (!template) {
+            return;
+        }
+
+        whisper = `/w {name} ${template}`;
+
+        for (const name in match.groups) {
+            whisper = whisper.replaceAll(`{${name}}`, match.groups[name]);
+        }
+
+        await navigator.clipboard.writeText(whisper);
     }
-    await navigator.clipboard.writeText(whisper)
-  }
-})
+});
