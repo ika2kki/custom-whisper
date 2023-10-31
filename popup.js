@@ -18,5 +18,6 @@ document.addEventListener("DOMContentLoaded", async function () {
                 sell: sell.value,
             },
         });
+        buy.disabled = sell.disabled = submitButton.disabled = true;
     });
 });
