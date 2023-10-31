@@ -5,16 +5,65 @@
         <meta charset="utf-8" />
     </head>
 
+    <style>
+        body {
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+
+            color: white;
+            background-color: black;
+        }
+
+        textarea,
+        button,
+        label {
+            display: block;
+        }
+
+        textarea {
+            resize: none;
+            border-radius: 4px;
+            background-color: transparent;
+            color: white;
+        }
+
+        #submit {
+            color: white;
+            background-color: green;
+            border: 0;
+            border-radius: 5px;
+            width: 100%;
+            padding: 5px;
+        }
+
+        #submit:hover {
+            background-color: darkgreen;
+        }
+
+        #submit:disabled {
+            opacity: 0.6;
+        }
+    </style>
+
     <body>
-        <div class="popup-content">
-            <label for="textbox-buy">buy:</label>
-            <input type="text" id="textbox-buy" />
+        <label for="textbox-buy">whisper (buy)</label>
+        <textarea
+            placeholder="Hi! I want to buy: {item} for {cost} platinum. (warframe.market)"
+            id="textbox-buy"
+            rows="4"
+            cols="25"
+        ></textarea>
 
-            <label for="textbox-sell">sell:</label>
-            <input type="text" id="textbox-sell" />
+        <label for="textbox-sell">whisper (sell)</label>
+        <textarea
+            placeholder="Hi! I want to sell: {item} for {cost} platinum. (warframe.market)"
+            id="textbox-sell"
+            rows="4"
+            cols="25"
+        ></textarea>
 
-            <button id="submit">save</button>
-        </div>
+        <button id="submit">save</button>
         <script src="popup.js"></script>
     </body>
 </html>

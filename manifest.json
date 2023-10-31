@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "custom whisper",
     "description": "lets you customise the whisper command for the warframe trading website",
-    "version": "0.1",
+    "version": "0.2",
     "icons": {
         "512": "icon.png"
     },
